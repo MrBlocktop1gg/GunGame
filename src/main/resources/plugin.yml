@@ -1,0 +1,3 @@
+name: GunGame
+version: '${version}'
+main: ru.cristalix.by.mr.block.gungame.gungame.GunGame

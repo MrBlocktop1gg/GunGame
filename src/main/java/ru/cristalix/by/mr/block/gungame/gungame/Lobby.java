@@ -22,13 +22,14 @@ public class Lobby implements Listener {
 
     @EventHandler
     public void playerJoinItems(PlayerJoinEvent e) {
+        Inventory inventory = e.getPlayer().getInventory();
         e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
         e.getPlayer().setGameMode(GameMode.ADVENTURE);
-        e.getPlayer().getInventory().setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
-        e.getPlayer().getInventory().setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
-        e.getPlayer().getInventory().setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));
-        e.getPlayer().getInventory().setItem(4, createInventoryItem(new ItemStack(ENDER_PORTAL_FRAME), "§2§lBattlePass", "[ПКМ]"));
-        e.getPlayer().getInventory().setItem(8, createInventoryItem(new ItemStack(MAGMA_CREAM), "§2§lВыйти в хаб", "[ПКМ]"));
+        inventory.setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
+        inventory.setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
+        inventory.setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));
+        inventory.setItem(4, createInventoryItem(new ItemStack(ENDER_PORTAL_FRAME), "§2§lBattlePass", "[ПКМ]"));
+        inventory.setItem(8, createInventoryItem(new ItemStack(MAGMA_CREAM), "§2§lВыйти в хаб", "[ПКМ]"));
     }
 
     @EventHandler

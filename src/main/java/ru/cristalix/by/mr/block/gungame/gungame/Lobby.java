@@ -33,8 +33,6 @@ public class Lobby implements Listener {
 
         e.getPlayer().getInventory().setItem(4, createInventoryItem(new ItemStack(ENDER_PORTAL_FRAME), "§2§lBattlePass", "[ПКМ]"));
 
-        e.getPlayer().getInventory().setItem(6, createInventoryItem(new ItemStack(COMMAND), "§4§lАдмин панель", ""));
-
         e.getPlayer().getInventory().setItem(8, createInventoryItem(new ItemStack(MAGMA_CREAM), "§2§lВыйти в хаб", "[ПКМ]"));
     }
 
@@ -43,14 +41,14 @@ public class Lobby implements Listener {
 
         Player player = e.getPlayer();
 
-        Material compass = (COMPASS);
+        Material start = (COMPASS);
         if (e.getItem().getType() == COMPASS) {
             player.teleport(new Location(Bukkit.getWorld("world"), -161, 96, 181));
             player.getInventory().clear();
             new StartGunGame().timer();
         }
 
-        Material ender_chest = (ENDER_CHEST);
+        Material cosmetic = (ENDER_CHEST);
         if (player.getItemInHand().getType() == ENDER_CHEST) {
             Inventory inventory = Bukkit.createInventory(player, 45, "Косметика");
             inventory.setItem(10, createInventoryItem(new ItemStack(DIAMOND_SWORD), "§7§lСкины на мечи", "Выделяйся из толпы"));
@@ -65,24 +63,7 @@ public class Lobby implements Listener {
             player.openInventory(inventory);
         }
 
-        if (player.getItemInHand().getType() == COMMAND) {
-            Inventory inventory = Bukkit.createInventory(player, 9, "Админ панель");
-            inventory.setItem(0, createInventoryItem(new ItemStack(STAINED_GLASS_PANE), "", ""));
-            inventory.setItem(1, createInventoryItem(new ItemStack(STAINED_GLASS_PANE), "", ""));
-            inventory.setItem(2, createInventoryItem(new ItemStack(ARROW), "Закрыть меню", ""));
-            inventory.setItem(3, createInventoryItem(new ItemStack(DIAMOND), "Выдать донат", ""));
-            inventory.setItem(4, createInventoryItem(new ItemStack(ENDER_PEARL), "Телепортироватся к игроку", ""));
-            inventory.setItem(5, createInventoryItem(new ItemStack(ORANGE_GLAZED_TERRACOTTA), "Кикнуть игрока", ""));
-            inventory.setItem(6, createInventoryItem(new ItemStack(RED_GLAZED_TERRACOTTA), "Забанить игрока", ""));
-            inventory.setItem(7, createInventoryItem(new ItemStack(STAINED_GLASS_PANE), "", ""));
-            inventory.setItem(8, createInventoryItem(new ItemStack(STAINED_GLASS_PANE), "", ""));
-
-            player.openInventory(inventory);
-
-        }
-
-
-        Material emerald = (EMERALD);
+        Material donate = (EMERALD);
         if (player.getItemInHand().getType() == EMERALD) {
             Inventory inventory = Bukkit.createInventory(player, 45, "Донат");
             inventory.setItem(10, createInventoryItem(new ItemStack(DIAMOND_SWORD), "§6§lСкины на мечи", "Выделяйся из толпы"));
@@ -98,7 +79,7 @@ public class Lobby implements Listener {
             return;
         }
 
-        Material ender_portal_frame = ENDER_PORTAL_FRAME;
+        Material battlePass = ENDER_PORTAL_FRAME;
         if (player.getItemInHand().getType() == ENDER_PORTAL_FRAME) {
                 Inventory inventory = Bukkit.createInventory(player, 45, "BattlePass");
                 inventory.setItem(22, createInventoryItem(new ItemStack(Material.COMMAND), "§4КОГДА-ТО ТУТ БУДЕТ БАТТЛ-ПАСС", "COMING SOON"));
@@ -106,7 +87,7 @@ public class Lobby implements Listener {
                 return;
             }
 
-            Material magma_cream = (MAGMA_CREAM);
+            Material hub = (MAGMA_CREAM);
             if (e.getItem().getType() == MAGMA_CREAM) {
                 player.kickPlayer("Хаба нет");
             }

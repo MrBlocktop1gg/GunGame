@@ -24,23 +24,16 @@ public class Lobby implements Listener {
     public void playerJoinItems(PlayerJoinEvent e) {
         e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
         e.getPlayer().setGameMode(GameMode.ADVENTURE);
-
         e.getPlayer().getInventory().setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
-
         e.getPlayer().getInventory().setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
-
         e.getPlayer().getInventory().setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));
-
         e.getPlayer().getInventory().setItem(4, createInventoryItem(new ItemStack(ENDER_PORTAL_FRAME), "§2§lBattlePass", "[ПКМ]"));
-
         e.getPlayer().getInventory().setItem(8, createInventoryItem(new ItemStack(MAGMA_CREAM), "§2§lВыйти в хаб", "[ПКМ]"));
     }
 
     @EventHandler
     public void playerClickItems(PlayerInteractEvent e) {
-
         Player player = e.getPlayer();
-
         Material start = (COMPASS);
         if (e.getItem().getType() == COMPASS) {
             player.teleport(new Location(Bukkit.getWorld("world"), -161, 96, 181));
@@ -59,7 +52,6 @@ public class Lobby implements Listener {
             inventory.setItem(30, createInventoryItem(new ItemStack(GRAY_GLAZED_TERRACOTTA), "§7§lМогилы", "После вашей смерти будет ваша могила"));
             inventory.setItem(32, createInventoryItem(new ItemStack(TIPPED_ARROW), "§7§lЭффект при выстреле", ""));
             inventory.setItem(34, createInventoryItem(new ItemStack(REDSTONE), "§7§lЭффект при убийстве", "Появляется при убийстве игрока"));
-
             player.openInventory(inventory);
         }
 
@@ -74,7 +66,6 @@ public class Lobby implements Listener {
             inventory.setItem(30, createInventoryItem(new ItemStack(CYAN_GLAZED_TERRACOTTA), "§6§lА§5§lу§a§lр§c§lы", "будь не как все"));
             inventory.setItem(32, createInventoryItem(new ItemStack(BLAZE_POWDER), "§6§lБустеры", "Сделай себя более прокаченей"));
             inventory.setItem(34, createInventoryItem(new ItemStack(GRAY_GLAZED_TERRACOTTA), "§6§lМогилы", "После вашей смерти будет ваша могила"));
-
             player.openInventory(inventory);
             return;
         }

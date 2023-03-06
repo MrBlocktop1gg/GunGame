@@ -1,7 +1,6 @@
 package ru.cristalix.by.mr.block.gungame.gungame;
 
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntitySpawnEvent;
@@ -36,7 +35,7 @@ public class Events implements Listener {
 
     @EventHandler
     public void noMobSpawn(EntitySpawnEvent e) {
-        if (e.getEntityType() == EntityType.IRON_GOLEM) {
+        if (e.getEntityType().isAlive()) {
             return;
         }
             e.setCancelled(true);

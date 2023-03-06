@@ -12,12 +12,12 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 public class Events implements Listener {
 
     @EventHandler
-    public void onWater(WeatherChangeEvent e) {
+    public void offWater(WeatherChangeEvent e) {
         e.setCancelled(true);
     }
 
     @EventHandler
-    public void onFood(FoodLevelChangeEvent e) {
+    public void offFood(FoodLevelChangeEvent e) {
         e.setCancelled(true);
     }
 
@@ -28,6 +28,7 @@ public class Events implements Listener {
         }
         e.setCancelled(true);
     }
+
     @EventHandler
     public void dropInventoryItems(PlayerDropItemEvent e) {
         e.setCancelled(true);
@@ -36,8 +37,7 @@ public class Events implements Listener {
     @EventHandler
     public void noMobSpawn(EntitySpawnEvent e) {
         if (e.getEntityType().isAlive()) {
-            return;
-        }
             e.setCancelled(true);
+        }
     }
 }

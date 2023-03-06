@@ -12,9 +12,9 @@ import static ru.cristalix.by.mr.block.gungame.gungame.GunGame.plugin;
 public class StartGunGame implements Listener {
     private int taskid;
     private int time = 11;
+    private int clickItemsTimes = 4;
 
     public void timer() {
-
         taskid = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
             time--;
             if(Bukkit.getOnlinePlayers().size() < 2) {
@@ -22,7 +22,9 @@ public class StartGunGame implements Listener {
             }
             if (time == 0) {
                 for (Player player : Bukkit.getOnlinePlayers()) {
-
+                    if (player.getItemInHand().getType() == Material.COMPASS) {
+                        Bukkit.getScheduler().cancelTask(clickItemsTimes);
+                    }
                     Bukkit.getScheduler().cancelTask(taskid);
                     player.sendTitle("§4Убивай игроков", "§2и получай вещи");
                     player.setHealth(player.getMaxHealth());

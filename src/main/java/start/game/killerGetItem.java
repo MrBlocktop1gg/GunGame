@@ -1,4 +1,4 @@
-package ru.cristalix.by.mr.block.gungame.gungame;
+package start.game;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,7 +12,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-public class Killed implements Listener {
+public class killerGetItem implements Listener {
 
     @EventHandler
     public void playerKilledEntity(EntityDeathEvent e) {

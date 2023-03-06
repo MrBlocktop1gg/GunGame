@@ -1,4 +1,4 @@
-package ru.cristalix.by.mr.block.gungame.gungame;
+package ru.cristalix.by.mr.block.gungame.event;
 
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -12,12 +12,12 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 public class Events implements Listener {
 
     @EventHandler
-    public void offWater(WeatherChangeEvent e) {
+    public void offRain(WeatherChangeEvent e) {
         e.setCancelled(true);
     }
 
     @EventHandler
-    public void offFood(FoodLevelChangeEvent e) {
+    public void offHunger(FoodLevelChangeEvent e) {
         e.setCancelled(true);
     }
 

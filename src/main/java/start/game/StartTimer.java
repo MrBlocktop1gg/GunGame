@@ -1,4 +1,4 @@
-package ru.cristalix.by.mr.block.gungame.gungame;
+package start.game;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import static ru.cristalix.by.mr.block.gungame.gungame.GunGame.plugin;
 
-public class StartGunGame implements Listener {
+public class StartTimer implements Listener {
     private int taskid;
     private int time = 11;
     private int clickItemsTimes = 4;

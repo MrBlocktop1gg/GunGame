@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import start.game.StartTimer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class Lobby implements Listener {
         if (e.getItem().getType() == COMPASS) {
             player.teleport(new Location(Bukkit.getWorld("world"), -161, 96, 181));
             player.getInventory().clear();
-            new StartGunGame().timer();
+            new StartTimer().timer();
         }
 
         Material cosmetic = (ENDER_CHEST);

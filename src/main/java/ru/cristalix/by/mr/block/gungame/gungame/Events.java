@@ -1,8 +1,8 @@
 package ru.cristalix.by.mr.block.gungame.gungame;
 
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -10,8 +10,8 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-
 public class Events implements Listener {
 
     @EventHandler
@@ -53,6 +53,13 @@ public class Events implements Listener {
                 break;
             default:
                 player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4);
+        }
+    }
+    @EventHandler
+    public void offFly(PlayerToggleFlightEvent event) {
+        if (event.getPlayer().isFlying()) {
+            event.getPlayer().isFlying();
+            event.getPlayer().kickPlayer("Без полёта!");
         }
     }
 }

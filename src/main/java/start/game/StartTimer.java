@@ -20,7 +20,7 @@ public class StartTimer implements Listener {
     public void timer() {
         taskid = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
             time--;
-            if(Bukkit.getOnlinePlayers().size() < 2) {
+            if(Bukkit.getOnlinePlayers().size() < 3) {
                 return;
             }
             if (time == 0) {

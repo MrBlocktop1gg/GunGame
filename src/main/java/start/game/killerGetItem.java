@@ -11,6 +11,8 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class killerGetItem implements Listener {
 
@@ -24,7 +26,6 @@ public class killerGetItem implements Listener {
             Bukkit.broadcastMessage(ChatColor.GOLD + "" + dead + " " + ChatColor.RED + "Был убит " + ChatColor.GOLD + " " + killer);
         }
     }
-
     @EventHandler
     public void addItemsKilled(EntityDeathEvent event) {
         Inventory inventory = event.getEntity().getKiller().getInventory();
@@ -34,33 +35,41 @@ public class killerGetItem implements Listener {
             case WOOD_SWORD:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.STONE_PICKAXE));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case STONE_PICKAXE:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.STONE_SWORD));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case STONE_SWORD:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.GOLD_AXE));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case GOLD_AXE:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.GOLD_SWORD));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
             case GOLD_SWORD:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.IRON_AXE));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case IRON_AXE:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.IRON_SWORD));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case IRON_SWORD:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.DIAMOND_PICKAXE));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
             case DIAMOND_PICKAXE:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.DIAMOND_SWORD));
+                event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
             default:
         }
     }

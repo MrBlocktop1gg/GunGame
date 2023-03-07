@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import start.game.StartTimer;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,11 @@ import static org.bukkit.Material.*;
 public class Lobby implements Listener {
 
     @EventHandler
-    public void playerJoinItems(PlayerJoinEvent e) {
-        Inventory inventory = e.getPlayer().getInventory();
-        e.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
-        e.getPlayer().setGameMode(GameMode.ADVENTURE);
+    public void playerJoinItems(PlayerJoinEvent event) {
+        Inventory inventory = event.getPlayer().getInventory();
+        event.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
+        event.getPlayer().setGameMode(GameMode.ADVENTURE);
+        event.getPlayer().setLevel(0);
         inventory.setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
         inventory.setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
         inventory.setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));
@@ -34,10 +36,10 @@ public class Lobby implements Listener {
     }
 
     @EventHandler
-    public void playerClickItems(PlayerInteractEvent e) {
-        Player player = e.getPlayer();
+    public void playerClickItems(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
         Material start = (COMPASS);
-        if (e.getItem().getType() == COMPASS) {
+        if (event.getItem().getType() == COMPASS) {
             player.teleport(new Location(Bukkit.getWorld("world"), -161, 96, 181));
             player.getInventory().clear();
             new StartTimer().timer();
@@ -81,7 +83,7 @@ public class Lobby implements Listener {
             }
 
             Material hub = (MAGMA_CREAM);
-            if (e.getItem().getType() == MAGMA_CREAM) {
+        if (event.getItem().getType() == MAGMA_CREAM) {
                 player.kickPlayer("Хаба нет");
             }
         }

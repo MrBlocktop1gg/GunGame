@@ -2,7 +2,6 @@ package ru.cristalix.by.mr.block.gungame.gungame;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.cristalix.by.mr.block.gungame.event.Events;
 import start.game.StartTimer;
 import start.game.killerGetItem;
 

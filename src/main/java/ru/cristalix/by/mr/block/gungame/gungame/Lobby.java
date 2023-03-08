@@ -28,6 +28,7 @@ public class Lobby implements Listener {
         event.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
         event.getPlayer().setGameMode(GameMode.ADVENTURE);
         event.getPlayer().setLevel(0);
+        inventory.clear();
         inventory.setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
         inventory.setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
         inventory.setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));

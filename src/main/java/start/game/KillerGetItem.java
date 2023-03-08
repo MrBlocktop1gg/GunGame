@@ -14,7 +14,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class KillerGetItem implements Listener {
+public class killerGetItem implements Listener {
 
     @EventHandler
     public void playerKilledEntity(EntityDeathEvent e) {
@@ -23,7 +23,7 @@ public class KillerGetItem implements Listener {
             Player killed = (Player) killedE;
             String dead = killed.getDisplayName();
             String killer = killed.getKiller().getDisplayName();
-            Bukkit.broadcastMessage(ChatColor.GOLD + "" + dead + " " + ChatColor.RED + "Был убит " + ChatColor.GOLD + " " + killer);
+            Bukkit.broadcastMessage(ChatColor.GOLD + "" + dead + " " + ChatColor.RED + "Был убит " + ChatColor.GOLD + "" + killer);
         }
     }
     @EventHandler
@@ -41,7 +41,7 @@ public class KillerGetItem implements Listener {
                 player.getInventory().setItem(39, new ItemStack(Material.CHAINMAIL_HELMET));
                 event.getEntity().getKiller().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1));
                 break;
-            case STONE_PICKAXE: case LEATHER_BOOTS: case LEATHER_LEGGINGS: case LEATHER_CHESTPLATE: case  LEATHER_HELMET:
+            case STONE_PICKAXE:
                 event.getEntity().getKiller().getInventory().clear();
                 inventory.setItem(0, new ItemStack(Material.STONE_SWORD));
                 player.getInventory().setItem(36, new ItemStack(Material.LEATHER_BOOTS));

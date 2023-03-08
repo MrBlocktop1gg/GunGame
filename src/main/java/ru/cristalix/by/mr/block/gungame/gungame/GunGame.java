@@ -1,5 +1,6 @@
 package ru.cristalix.by.mr.block.gungame.gungame;
 
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import start.game.StartTimer;
 import start.game.KillerGetItem;
@@ -7,9 +8,11 @@ import start.game.KillerGetItem;
 public final class GunGame extends JavaPlugin {
 
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new StartTimer(), this);
-        getServer().getPluginManager().registerEvents(new Lobby(), this);
-        getServer().getPluginManager().registerEvents(new Events(), this);
-        getServer().getPluginManager().registerEvents(new KillerGetItem(), this);
+        PluginManager pluginManager = getServer().getPluginManager();
+
+        pluginManager.registerEvents(new StartTimer(), this);
+        pluginManager.registerEvents(new Lobby(), this);
+        pluginManager.registerEvents(new Events(), this);
+        pluginManager.registerEvents(new KillerGetItem(), this);
     }
 }

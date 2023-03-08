@@ -23,7 +23,7 @@ public class Events implements Listener {
     }
 
     @EventHandler
-    public void clickInventory(InventoryClickEvent event) {
+    public void clickInventoryItems(InventoryClickEvent event) {
         if (event.getCurrentItem().getType() == null) {
             return;
         }

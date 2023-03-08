@@ -1,8 +1,7 @@
 package ru.cristalix.by.mr.block.gungame.gungame;
 
-import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -25,7 +24,7 @@ public class Events implements Listener {
 
     @EventHandler
     public void clickInventory(InventoryClickEvent event) {
-        if (event.getCurrentItem().getType() == Material.AIR) {
+        if (event.getCurrentItem().getType() == null) {
             return;
         }
         event.setCancelled(true);

@@ -14,7 +14,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import start.game.StartTimer;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +23,13 @@ public class Lobby implements Listener {
 
     @EventHandler
     public void playerJoinItems(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
         Inventory inventory = event.getPlayer().getInventory();
-        event.getPlayer().teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
-        event.getPlayer().setGameMode(GameMode.ADVENTURE);
-        event.getPlayer().setLevel(0);
+        player.teleport(new Location(Bukkit.getWorld("world"), -214, 85, 198));
+        player.setGameMode(GameMode.ADVENTURE);
+        player.setLevel(0);
         inventory.clear();
+
         inventory.setItem(0, createInventoryItem(new ItemStack(COMPASS), "§2§lНачать игру", "[ПКМ]"));
         inventory.setItem(1, createInventoryItem(new ItemStack(ENDER_CHEST), "§2§lКосметика", "[ПКМ]"));
         inventory.setItem(2, createInventoryItem(new ItemStack(EMERALD), "§2§lДонат", "[ПКМ]"));
@@ -57,6 +58,7 @@ public class Lobby implements Listener {
             inventory.setItem(30, createInventoryItem(new ItemStack(GRAY_GLAZED_TERRACOTTA), "§7§lМогилы", "После вашей смерти будет ваша могила"));
             inventory.setItem(32, createInventoryItem(new ItemStack(TIPPED_ARROW), "§7§lЭффект при выстреле", ""));
             inventory.setItem(34, createInventoryItem(new ItemStack(REDSTONE), "§7§lЭффект при убийстве", "Появляется при убийстве игрока"));
+
             player.openInventory(inventory);
         }
 
@@ -71,24 +73,27 @@ public class Lobby implements Listener {
             inventory.setItem(30, createInventoryItem(new ItemStack(CYAN_GLAZED_TERRACOTTA), "§6§lА§5§lу§a§lр§c§lы", "будь не как все"));
             inventory.setItem(32, createInventoryItem(new ItemStack(BLAZE_POWDER), "§6§lБустеры", "Сделай себя более прокаченей"));
             inventory.setItem(34, createInventoryItem(new ItemStack(GRAY_GLAZED_TERRACOTTA), "§6§lМогилы", "После вашей смерти будет ваша могила"));
+
             player.openInventory(inventory);
             return;
         }
 
         Material battlePass = ENDER_PORTAL_FRAME;
         if (player.getItemInHand().getType() == ENDER_PORTAL_FRAME) {
-                Inventory inventory = Bukkit.createInventory(player, 45, "BattlePass");
-                inventory.setItem(22, createInventoryItem(new ItemStack(Material.COMMAND), "§4КОГДА-ТО ТУТ БУДЕТ БАТТЛ-ПАСС", "COMING SOON"));
-                player.openInventory(inventory);
-                return;
-            }
-
-            Material hub = (MAGMA_CREAM);
-        if (event.getItem().getType() == MAGMA_CREAM) {
-                player.kickPlayer("Хаба нет");
-            }
+            Inventory inventory = Bukkit.createInventory(player, 45, "BattlePass");
+            inventory.setItem(22, createInventoryItem(new ItemStack(Material.COMMAND), "§4КОГДА-ТО ТУТ БУДЕТ БАТТЛ-ПАСС", "COMING SOON"));
+            
+            player.openInventory(inventory);
+            return;
         }
-    public ItemStack createInventoryItem (ItemStack item, String name, String lore){
+
+        Material hub = (MAGMA_CREAM);
+        if (event.getItem().getType() == MAGMA_CREAM) {
+            player.kickPlayer("Хаба нет");
+        }
+    }
+
+    public ItemStack createInventoryItem(ItemStack item, String name, String lore) {
         name = "§r" + name;
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(name);

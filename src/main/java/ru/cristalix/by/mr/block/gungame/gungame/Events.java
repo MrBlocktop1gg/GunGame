@@ -10,7 +10,6 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 public class Events implements Listener {
 
@@ -43,23 +42,25 @@ public class Events implements Listener {
             event.setCancelled(true);
         }
     }
+
     @EventHandler
     public void increaseAttackSpeed(EntityDamageByEntityEvent event) {
         if (!(event.getDamager() instanceof Player)) return;
-        Player player = ((Player)event.getDamager());
+        Player player = ((Player) event.getDamager());
         switch (player.getItemInHand().getType()) {
-            case WOOD_SWORD: case STONE_PICKAXE: case STONE_SWORD: case GOLD_AXE: case GOLD_SWORD: case IRON_AXE: case IRON_SWORD: case DIAMOND_PICKAXE: case DIAMOND_SWORD:
+            case WOOD_SWORD:
+            case STONE_PICKAXE:
+            case STONE_SWORD:
+            case GOLD_AXE:
+            case GOLD_SWORD:
+            case IRON_AXE:
+            case IRON_SWORD:
+            case DIAMOND_PICKAXE:
+            case DIAMOND_SWORD:
                 player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(14);
                 break;
             default:
                 player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4);
-        }
-    }
-    @EventHandler
-    public void offFly(PlayerToggleFlightEvent event) {
-        if (event.getPlayer().isFlying()) {
-            event.getPlayer().isFlying();
-            event.getPlayer().kickPlayer("Без полёта!");
         }
     }
 }

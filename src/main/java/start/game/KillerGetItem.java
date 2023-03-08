@@ -15,7 +15,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class KillerGetItem implements Listener {
+public class killerGetItem implements Listener {
 
     @EventHandler
     public void playerKilledEntity(EntityDeathEvent e) {

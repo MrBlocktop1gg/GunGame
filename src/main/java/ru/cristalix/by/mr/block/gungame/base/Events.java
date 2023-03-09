@@ -1,4 +1,4 @@
-package ru.cristalix.by.mr.block.gungame.gungame;
+package ru.cristalix.by.mr.block.gungame.base;
 
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
